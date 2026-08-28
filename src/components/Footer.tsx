@@ -1,199 +1,94 @@
 import React from 'react';
-import { BrandLogo } from './BrandLogo';
-import { BUSINESS_INFO, buildWhatsAppLink, buildCallLink } from '../data/businessData';
-import { MapPin, Phone, MessageCircle, ArrowUp } from 'lucide-react';
+import { BUSINESS_INFO } from '../data/businessData';
+import { MapPin, Clock } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const [naveen, ajay] = BUSINESS_INFO.contacts;
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="bg-brand-blue-950 text-slate-300 border-t border-brand-blue-900 pt-16 pb-24 md:pb-12">
+    <footer className="bg-brand-blue-950 text-slate-300 pt-12 pb-24 md:pb-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-brand-blue-900/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-white/10">
           
-          {/* Col 1: Brand & Tagline (5 cols) */}
-          <div className="lg:col-span-5 space-y-4">
-            <BrandLogo variant="footer" />
-            
-            <p className="text-sm font-bold text-brand-orange-400">
-              Travel • Tickets • Hotels • Cars • Money Exchange
-            </p>
-
-            <p className="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed">
-              Your reliable local travel partner in Najafgarh, New Delhi. Providing prompt flight, train, bus reservations, outstation car rentals, and customized travel assistance directly over WhatsApp.
-            </p>
-
-            {/* WhatsApp Available Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>WhatsApp Enquiry Available 7 Days a Week</span>
+          {/* Brand Col */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <img 
+                src="assets/logo.png" 
+                alt="Shri Khatu Shyam Ji Tour & Travels Logo" 
+                className="w-10 h-10 rounded-full border border-brand-orange-400/50" 
+              />
+              <span className="font-extrabold text-white text-base leading-tight">
+                Shri Khatu Shyam Ji<br />
+                <span className="text-brand-orange-400 text-xs font-semibold uppercase">Tour & Travels</span>
+              </span>
             </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Your dependable travel partner in Najafgarh, New Delhi. Air, train, and bus tickets, hotel stays, and verified car rentals with direct WhatsApp assistance.
+            </p>
           </div>
 
-          {/* Col 2: Quick Links (2 cols) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider">
-              Quick Links
+          {/* Services List */}
+          <div>
+            <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-3">
+              Our Services
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li>
-                <a href="#home" className="hover:text-brand-orange-400 transition-colors">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  All Services
-                </a>
-              </li>
-              <li>
-                <a href="#enquiry" className="hover:text-brand-orange-400 transition-colors">
-                  Trip Enquiry
-                </a>
-              </li>
-              <li>
-                <a href="#how-it-works" className="hover:text-brand-orange-400 transition-colors">
-                  How It Works
-                </a>
-              </li>
-              <li>
-                <a href="#why-us" className="hover:text-brand-orange-400 transition-colors">
-                  Why Choose Us
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="hover:text-brand-orange-400 transition-colors">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-brand-orange-400 transition-colors">
-                  Contact & Map
-                </a>
-              </li>
+            <ul className="space-y-1.5 text-xs text-slate-400">
+              <li>Air Ticket Booking (Domestic/Intl)</li>
+              <li>Train Ticket Booking (IRCTC)</li>
+              <li>Bus Ticket Booking (Volvo/Sleeper)</li>
+              <li>Hotel Booking (Pilgrimage & Holidays)</li>
+              <li>Car Rental (Daily / Outstation)</li>
+              <li>Car Booking (Airport / Drops)</li>
+              <li>Money Exchange Assistance</li>
+              <li>Pre-Owned Car Sale & Purchase</li>
             </ul>
           </div>
 
-          {/* Col 3: Key Services (2 cols) */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider">
-              Key Services
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-3">
+              Quick Navigation
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  Air Ticket Booking
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  Train Ticket Booking
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  Bus Ticket Booking
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  Hotel Booking
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  Car Rental
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  Money Exchange
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="hover:text-brand-orange-400 transition-colors">
-                  Car Sale & Purchase
-                </a>
-              </li>
+            <ul className="space-y-1.5 text-xs text-slate-400">
+              <li><a href="#home" className="hover:text-brand-orange-400 transition-colors">Home</a></li>
+              <li><a href="#quick-enquiry" className="hover:text-brand-orange-400 transition-colors">Quick Enquiry</a></li>
+              <li><a href="#quote-form" className="hover:text-brand-orange-400 transition-colors">Get Travel Quote</a></li>
+              <li><a href="#destinations" className="hover:text-brand-orange-400 transition-colors">Popular Routes</a></li>
+              <li><a href="#car-rental" className="hover:text-brand-orange-400 transition-colors">Car Rental Fleet</a></li>
+              <li><a href="#how-it-works" className="hover:text-brand-orange-400 transition-colors">How It Works</a></li>
+              <li><a href="#why-us" className="hover:text-brand-orange-400 transition-colors">Why Choose Us</a></li>
+              <li><a href="#team" className="hover:text-brand-orange-400 transition-colors">Direct Desk Team</a></li>
+              <li><a href="#contact" className="hover:text-brand-orange-400 transition-colors">Office Address</a></li>
             </ul>
           </div>
 
-          {/* Col 4: Contact Details (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider">
-              Office & Desk
+          {/* Contact Office */}
+          <div className="space-y-2.5 text-xs">
+            <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-3">
+              Office & Desks
             </h4>
-            
-            <div className="space-y-2.5 text-xs text-slate-400">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-brand-orange-400 flex-shrink-0 mt-0.5" />
-                <span>
-                  {BUSINESS_INFO.address.street}, {BUSINESS_INFO.address.area}, {BUSINESS_INFO.address.city} – {BUSINESS_INFO.address.pincode}
-                </span>
-              </div>
-
-              <div className="pt-2 border-t border-brand-blue-900 space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-slate-200">Naveen:</span>
-                  <a
-                    href={buildCallLink(naveen.phone)}
-                    className="text-brand-orange-400 hover:underline font-mono"
-                  >
-                    +91 {naveen.displayPhone}
-                  </a>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-slate-200">Ajay:</span>
-                  <a
-                    href={buildCallLink(ajay.phone)}
-                    className="text-brand-orange-400 hover:underline font-mono"
-                  >
-                    +91 {ajay.displayPhone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <a
-                  href={buildWhatsAppLink(
-                    naveen.whatsappNumber,
-                    "Hello Shri Khatu Shyam Ji Tour & Travels, I would like to get quick assistance."
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-2 px-3 rounded-xl transition-colors shadow-sm"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 fill-white text-emerald-600" />
-                  <span>Direct WhatsApp Chat</span>
-                </a>
-              </div>
+            <div className="flex items-start gap-2 text-slate-400">
+              <MapPin className="w-4 h-4 text-brand-orange-400 flex-shrink-0 mt-0.5" />
+              <span>{BUSINESS_INFO.address.fullAddress}</span>
+            </div>
+            <div className="flex items-center gap-2 text-slate-400">
+              <Clock className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <span>{BUSINESS_INFO.workingHours}</span>
+            </div>
+            <div className="pt-2 space-y-1 text-slate-300">
+              <div><strong>Naveen:</strong> 87662 88547</div>
+              <div><strong>Ajay:</strong> 90341 51613</div>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 Shri Khatu Shyam Ji Tour & Travels. All Rights Reserved.</p>
-          
-          <div className="flex items-center gap-4">
-            <span className="text-slate-500">Najafgarh, New Delhi – 110043</span>
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-1 text-slate-400 hover:text-white transition-colors"
-              aria-label="Back to top"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5" />
-            </button>
-          </div>
+        {/* Bottom copyright */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 text-center sm:text-left">
+          <p>© {new Date().getFullYear()} Shri Khatu Shyam Ji Tour & Travels. All rights reserved.</p>
+          <p className="flex items-center gap-1">
+            <span>Serving Najafgarh & Delhi NCR Travelers</span>
+          </p>
         </div>
 
       </div>

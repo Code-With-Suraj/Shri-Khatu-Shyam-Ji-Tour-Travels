@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SERVICES_LIST, BUSINESS_INFO, buildWhatsAppLink, ServiceItem } from '../data/businessData';
 import { 
   Plane, 
@@ -11,82 +11,53 @@ import {
   BadgePercent, 
   MessageCircle, 
   Check, 
-  ArrowUpRight 
+  ArrowRight 
 } from 'lucide-react';
 
 export const ServicesSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-
   const getServiceIcon = (iconName: string) => {
     switch (iconName) {
       case 'Plane':
-        return <Plane className="w-6 h-6 text-brand-orange-500" />;
+        return <Plane className="w-5 h-5 text-sky-500" />;
       case 'Train':
-        return <Train className="w-6 h-6 text-brand-blue-600" />;
+        return <Train className="w-5 h-5 text-amber-500" />;
       case 'Bus':
-        return <Bus className="w-6 h-6 text-emerald-600" />;
+        return <Bus className="w-5 h-5 text-emerald-500" />;
       case 'Hotel':
-        return <Hotel className="w-6 h-6 text-amber-600" />;
+        return <Hotel className="w-5 h-5 text-indigo-500" />;
       case 'Car':
-        return <Car className="w-6 h-6 text-indigo-600" />;
+        return <Car className="w-5 h-5 text-blue-600" />;
       case 'Coins':
-        return <Coins className="w-6 h-6 text-yellow-600" />;
+        return <Coins className="w-5 h-5 text-yellow-600" />;
       case 'KeyRound':
-        return <KeyRound className="w-6 h-6 text-brand-orange-600" />;
+        return <KeyRound className="w-5 h-5 text-brand-orange-500" />;
       case 'BadgePercent':
-        return <BadgePercent className="w-6 h-6 text-teal-600" />;
+        return <BadgePercent className="w-5 h-5 text-teal-600" />;
       default:
-        return <Car className="w-6 h-6 text-brand-orange-500" />;
+        return <Car className="w-5 h-5 text-brand-orange-500" />;
     }
   };
 
-  const filteredServices = activeCategory === 'all'
-    ? SERVICES_LIST
-    : SERVICES_LIST.filter(s => s.category === activeCategory);
-
   return (
-    <section id="services" className="py-16 sm:py-24 bg-slate-50 relative">
+    <section id="services" className="py-14 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue-100 text-brand-blue-900 text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Comprehensive Solutions</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-blue-950 tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-orange-600 bg-brand-orange-50 px-3 py-1 rounded-full border border-brand-orange-200">
+            Complete Travel Solutions
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-blue-950 tracking-tight mt-2">
             Travel Services Under One Roof
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed text-balance">
-            Ticket booking, hotels, cars and other travel services — enquire directly on WhatsApp with our Najafgarh team.
+          <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+            Tell us what you need. Our team will help you with the available options.
           </p>
-
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
-            {[
-              { id: 'all', label: 'All Services (8)' },
-              { id: 'tickets', label: 'Tickets (Air, Train, Bus)' },
-              { id: 'vehicles', label: 'Cars & Rentals' },
-              { id: 'stays', label: 'Hotel Booking' },
-              { id: 'exchange', label: 'Money Exchange' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveCategory(tab.id)}
-                className={`text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl transition-all ${
-                  activeCategory === tab.id
-                    ? 'bg-brand-blue-900 text-white shadow-sm'
-                    : 'bg-white text-slate-600 hover:bg-slate-200/70 border border-slate-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* 8 Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {filteredServices.map((service: ServiceItem) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {SERVICES_LIST.map((service: ServiceItem) => {
             const waLink = buildWhatsAppLink(
               BUSINESS_INFO.contacts[0].whatsappNumber,
               service.defaultMessage
@@ -95,21 +66,21 @@ export const ServicesSection: React.FC = () => {
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-2xl sm:rounded-3xl p-6 shadow-card hover:shadow-card-hover border border-slate-200/80 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-brand-orange-300 transition-all duration-200 flex flex-col justify-between group"
               >
                 <div>
                   {/* Top Row: Icon & Badge */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <div className="w-11 h-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
                       {getServiceIcon(service.iconName)}
                     </div>
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700">
+                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-brand-blue-100/70 text-brand-blue-950">
                       {service.badge}
                     </span>
                   </div>
 
                   {/* Title & Short Description */}
-                  <h3 className="text-lg font-bold text-brand-blue-950 mb-2 group-hover:text-brand-orange-600 transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-brand-blue-950 mb-1.5 group-hover:text-brand-orange-600 transition-colors">
                     {service.title}
                   </h3>
                   
@@ -117,58 +88,33 @@ export const ServicesSection: React.FC = () => {
                     {service.shortDesc}
                   </p>
 
-                  {/* Service Highlights List */}
-                  <ul className="space-y-2 mb-6 pt-3 border-t border-slate-100">
-                    {service.highlights.map((highlight, idx) => (
-                      <li key={idx} className="flex items-center gap-2 text-xs text-slate-600">
+                  {/* Highlights */}
+                  <ul className="space-y-1.5 mb-5">
+                    {service.highlights.map((h, i) => (
+                      <li key={i} className="flex items-center gap-1.5 text-xs text-slate-700">
                         <Check className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
-                        <span>{highlight}</span>
+                        <span>{h}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Card WhatsApp CTA Button */}
-                <div className="pt-2">
+                {/* Direct CTA */}
+                <div>
                   <a
                     href={waLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold text-xs sm:text-sm py-2.5 px-4 rounded-xl shadow-sm hover:shadow-wa transition-all"
+                    className="w-full flex items-center justify-center gap-1.5 bg-white hover:bg-emerald-600 text-slate-800 hover:text-white text-xs font-bold py-2.5 px-3 rounded-xl border border-slate-300 hover:border-emerald-600 shadow-xs transition-colors"
                   >
-                    <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                    <MessageCircle className="w-4 h-4 text-emerald-600 group-hover:text-white" />
                     <span>{service.ctaText}</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
                   </a>
                 </div>
+
               </div>
             );
           })}
-        </div>
-
-        {/* Bottom Local Help Notice */}
-        <div className="mt-12 bg-gradient-to-r from-brand-blue-950 via-brand-blue-900 to-brand-blue-950 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-base sm:text-lg font-bold text-white">
-              Have a custom pilgrimage or outstation travel plan?
-            </h4>
-            <p className="text-xs sm:text-sm text-slate-300">
-              We arrange direct car bookings, train tickets, and hotel stays for Khatu Shyam Ji, Salasar, Vrindavan & hill stations.
-            </p>
-          </div>
-
-          <a
-            href={buildWhatsAppLink(
-              BUSINESS_INFO.contacts[0].whatsappNumber,
-              "Hello Shri Khatu Shyam Ji Tour & Travels, I want to discuss a customized pilgrimage/tour plan."
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-shrink-0 flex items-center gap-2 bg-brand-orange-500 hover:bg-brand-orange-600 text-white text-xs sm:text-sm font-bold py-3 px-5 rounded-xl shadow-cta transition-transform hover:-translate-y-0.5"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Discuss on WhatsApp</span>
-          </a>
         </div>
 
       </div>

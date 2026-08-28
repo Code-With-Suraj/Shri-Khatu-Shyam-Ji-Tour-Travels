@@ -1,144 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import { BrandLogo } from './BrandLogo';
-import { BUSINESS_INFO, buildWhatsAppLink, buildCallLink } from '../data/businessData';
+import React, { useState } from 'react';
+import { BUSINESS_INFO, buildWhatsAppLink } from '../data/businessData';
 import { MessageCircle, Phone, Menu, X, ChevronRight } from 'lucide-react';
 
 export const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showContactDropdown, setShowContactDropdown] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'Trip Enquiry', href: '#enquiry' },
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'Why Choose Us', href: '#why-us' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const primaryWhatsAppUrl = buildWhatsAppLink(
+  const headerWaUrl = buildWhatsAppLink(
     BUSINESS_INFO.contacts[0].whatsappNumber,
-    "Hello Shri Khatu Shyam Ji Tour & Travels, I would like to enquire about your travel and ticketing services."
+    "Hello Shri Khatu Shyam Ji Tour & Travels, I would like to enquire about travel and ticketing services."
   );
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'glass-header py-2.5 shadow-xl border-b border-brand-blue-800/40'
-          : 'bg-brand-blue-950 py-3.5 border-b border-white/10'
-      }`}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-blue-950/95 backdrop-blur-md py-2.5 sm:py-3 border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Brand Logo & Name */}
-          <a
-            href="#home"
-            className="focus:outline-none focus:ring-2 focus:ring-brand-orange-500 rounded-lg p-1"
-            aria-label="Shri Khatu Shyam Ji Tour & Travels Home"
-          >
-            <BrandLogo variant="light" />
-          </a>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-sm font-medium text-slate-200">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="hover:text-brand-orange-400 transition-colors duration-200 py-1"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-
-          {/* Desktop Direct Action Buttons */}
-          <div className="hidden sm:flex items-center gap-3">
-            {/* Direct WhatsApp Button with dropdown for Naveen / Ajay */}
-            <div className="relative">
-              <button
-                onClick={() => setShowContactDropdown(!showContactDropdown)}
-                className="flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white text-xs sm:text-sm font-bold py-2 px-3.5 sm:px-4 rounded-xl shadow-wa transition-all transform hover:-translate-y-0.5"
-                title="Chat with our team on WhatsApp"
-              >
-                <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
-                <span>WhatsApp Us</span>
-              </button>
-
-              {/* WhatsApp Dropdown */}
-              {showContactDropdown && (
-                <div
-                  className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 z-50 animate-in fade-in zoom-in-95 duration-150 text-slate-800"
-                  onMouseLeave={() => setShowContactDropdown(false)}
-                >
-                  <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-3 pt-2 pb-1">
-                    Select Contact Person
-                  </p>
-                  {BUSINESS_INFO.contacts.map((c) => (
-                    <a
-                      key={c.name}
-                      href={buildWhatsAppLink(
-                        c.whatsappNumber,
-                        `Hello ${c.name} Bhai, I want to enquire about Shri Khatu Shyam Ji Tour & Travels services.`
-                      )}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between p-2.5 rounded-xl hover:bg-emerald-50 hover:text-emerald-900 transition-colors group"
-                      onClick={() => setShowContactDropdown(false)}
-                    >
-                      <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">
-                          {c.name[0]}
-                        </div>
-                        <div>
-                          <div className="font-bold text-xs text-slate-900 group-hover:text-emerald-700">
-                            {c.name}
-                          </div>
-                          <div className="text-[11px] text-slate-500">{c.displayPhone}</div>
-                        </div>
-                      </div>
-                      <MessageCircle className="w-4 h-4 text-emerald-600 group-hover:scale-110 transition-transform" />
-                    </a>
-                  ))}
-                </div>
-              )}
+          
+          {/* Brand Logo & Title */}
+          <a href="#home" className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none flex-shrink-0" aria-label="Shri Khatu Shyam Ji Tour & Travels">
+            <div className="relative flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full p-[2px] bg-gradient-to-tr from-amber-400 via-brand-orange-500 to-amber-300 shadow-md group-hover:scale-105 transition-transform duration-300">
+              <img 
+                src="assets/logo.png" 
+                alt="Shri Khatu Shyam Ji Tour & Travels Logo" 
+                class="w-full h-full object-cover rounded-full bg-brand-blue-950" 
+              />
             </div>
 
-            {/* Direct Call Button for Fast Help */}
+            <div className="flex flex-col text-left whitespace-nowrap">
+              <span className="font-extrabold text-sm sm:text-base tracking-tight leading-tight text-white group-hover:text-amber-300 transition-colors">
+                Shri Khatu Shyam Ji
+              </span>
+              <div className="flex items-center gap-1.5 text-xs">
+                <span className="inline-block px-1.5 py-0.5 rounded bg-brand-orange-500/25 text-brand-orange-400 font-extrabold uppercase tracking-wider text-[10px]">
+                  Tour & Travels
+                </span>
+                <span className="text-slate-300 text-[11px] font-medium">• Najafgarh</span>
+              </div>
+            </div>
+          </a>
+
+          {/* Desktop Nav Links */}
+          <nav className="hidden lg:flex items-center space-x-5 xl:space-x-6 text-xs xl:text-sm font-medium text-slate-200">
+            <a href="#home" className="hover:text-brand-orange-400 transition-colors py-1">Home</a>
+            <a href="#quick-enquiry" className="hover:text-brand-orange-400 transition-colors py-1">Quick Enquiry</a>
+            <a href="#quote-form" className="hover:text-brand-orange-400 transition-colors py-1">Get Quote</a>
+            <a href="#destinations" className="hover:text-brand-orange-400 transition-colors py-1">Popular Routes</a>
+            <a href="#services" className="hover:text-brand-orange-400 transition-colors py-1">Services</a>
+            <a href="#car-rental" className="hover:text-brand-orange-400 transition-colors py-1">Car Rental</a>
+            <a href="#how-it-works" className="hover:text-brand-orange-400 transition-colors py-1">How It Works</a>
+            <a href="#why-us" className="hover:text-brand-orange-400 transition-colors py-1">Why Us</a>
+            <a href="#team" className="hover:text-brand-orange-400 transition-colors py-1">Our Team</a>
+            <a href="#contact" className="hover:text-brand-orange-400 transition-colors py-1">Contact</a>
+          </nav>
+
+          {/* Desktop Action Buttons */}
+          <div className="hidden sm:flex items-center gap-2.5 flex-shrink-0">
             <a
-              href={buildCallLink(BUSINESS_INFO.contacts[0].phone)}
-              className="flex items-center gap-1.5 bg-brand-blue-800/80 hover:bg-brand-blue-700 text-white text-xs sm:text-sm font-semibold py-2 px-3 sm:px-3.5 rounded-xl border border-brand-blue-600/50 transition-colors"
+              href={headerWaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold py-2 px-3.5 rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 active:scale-95"
+            >
+              <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+              <span>WhatsApp Us</span>
+            </a>
+
+            <a
+              href={`tel:+91${BUSINESS_INFO.contacts[0].phone}`}
+              className="flex items-center gap-1.5 bg-brand-blue-900 hover:bg-brand-blue-800 text-white text-xs sm:text-sm font-semibold py-2 px-3 rounded-xl border border-white/10 transition-colors"
               title="Call Naveen"
             >
               <Phone className="w-3.5 h-3.5 text-brand-orange-400" />
-              <span className="hidden xl:inline">Call Desk</span>
-              <span className="xl:hidden">Call</span>
+              <span>Call Desk</span>
             </a>
           </div>
 
-          {/* Mobile Right Controls: Mobile WhatsApp + Hamburger */}
+          {/* Mobile Menu Button */}
           <div className="flex sm:hidden items-center gap-2">
             <a
-              href={primaryWhatsAppUrl}
+              href={headerWaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 bg-emerald-600 text-white text-xs font-bold py-1.5 px-3 rounded-lg shadow-sm"
-              aria-label="WhatsApp Us"
+              className="flex items-center gap-1 bg-emerald-600 text-white text-xs font-bold py-1.5 px-3 rounded-lg active:scale-95"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-white text-emerald-600" />
               <span>WhatsApp</span>
@@ -146,47 +88,57 @@ export const Header: React.FC = () => {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-1.5 rounded-lg text-slate-200 hover:text-white hover:bg-brand-blue-800/60 focus:outline-none"
-              aria-label="Toggle navigation menu"
+              className="p-2 rounded-lg text-slate-200 hover:text-white hover:bg-brand-blue-900 focus:outline-none"
+              aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
+
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-brand-blue-950 border-t border-brand-blue-900 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden bg-brand-blue-950 border-t border-brand-blue-900 px-4 pt-3 pb-6 space-y-2 animate-fadeIn">
           <nav className="space-y-1">
-            {navLinks.map((link) => (
+            {[
+              { href: '#home', label: 'Home' },
+              { href: '#quick-enquiry', label: 'Quick Enquiry' },
+              { href: '#quote-form', label: 'Get Quote Form' },
+              { href: '#destinations', label: 'Popular Travel Routes' },
+              { href: '#services', label: 'All Services (8)' },
+              { href: '#car-rental', label: 'Car Rental Fleet' },
+              { href: '#how-it-works', label: 'How It Works' },
+              { href: '#why-us', label: 'Why Choose Us' },
+              { href: '#team', label: 'Talk to Team' },
+              { href: '#contact', label: 'Office Location & Contact' },
+            ].map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-200 hover:text-brand-orange-400 hover:bg-brand-blue-900/60 font-medium text-sm transition-colors"
+                className="flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-200 hover:text-brand-orange-400 hover:bg-brand-blue-900/70 font-medium text-sm transition-colors"
               >
-                <span>{link.name}</span>
+                <span>{link.label}</span>
                 <ChevronRight className="w-4 h-4 text-slate-500" />
               </a>
             ))}
           </nav>
 
           <div className="pt-3 border-t border-brand-blue-900/80 space-y-2">
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-1">
-              Direct Contact Desk:
-            </p>
+            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-1">Direct Contact Desk:</p>
             <div className="grid grid-cols-2 gap-2">
               <a
-                href={buildCallLink(BUSINESS_INFO.contacts[0].phone)}
-                className="flex items-center justify-center gap-1.5 bg-brand-blue-800 py-2.5 px-2 rounded-xl text-white text-xs font-semibold"
+                href={`tel:+91${BUSINESS_INFO.contacts[0].phone}`}
+                className="flex items-center justify-center gap-1.5 bg-brand-blue-900 py-2.5 px-2 rounded-xl text-white text-xs font-semibold hover:bg-brand-blue-800 transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-orange-400" />
                 <span>Call Naveen</span>
               </a>
               <a
-                href={buildCallLink(BUSINESS_INFO.contacts[1].phone)}
-                className="flex items-center justify-center gap-1.5 bg-brand-blue-800 py-2.5 px-2 rounded-xl text-white text-xs font-semibold"
+                href={`tel:+91${BUSINESS_INFO.contacts[1].phone}`}
+                className="flex items-center justify-center gap-1.5 bg-brand-blue-900 py-2.5 px-2 rounded-xl text-white text-xs font-semibold hover:bg-brand-blue-800 transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-orange-400" />
                 <span>Call Ajay</span>

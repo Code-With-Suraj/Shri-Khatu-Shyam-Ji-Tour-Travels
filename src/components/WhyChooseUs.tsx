@@ -1,99 +1,94 @@
 import React from 'react';
-import { 
-  Layers, 
-  MessageCircle, 
-  MapPin, 
-  UserCheck, 
-  SlidersHorizontal,
-  Compass
-} from 'lucide-react';
+import { Layers, MessageCircle, MapPin, UserCheck, CheckCircle2 } from 'lucide-react';
 
 export const WhyChooseUs: React.FC = () => {
-  const benefits = [
+  const reasons = [
     {
-      title: 'Multiple Travel Services',
-      description: 'Tickets, hotels, cars, currency guidance, and travel planning all from one single desk.',
-      icon: Layers,
-      iconColor: 'text-brand-blue-600',
-      bg: 'bg-brand-blue-50',
+      icon: <Layers className="w-5 h-5 text-brand-orange-500" />,
+      title: "Multiple Travel Services",
+      desc: "Tickets, hotels, cars, and other travel requirements handled under one roof."
     },
     {
-      title: 'Easy WhatsApp Assistance',
-      description: 'Ask your questions and get quotes directly on WhatsApp without navigating complicated forms.',
-      icon: MessageCircle,
-      iconColor: 'text-emerald-600',
-      bg: 'bg-emerald-50',
+      icon: <MessageCircle className="w-5 h-5 text-emerald-600" />,
+      title: "Easy WhatsApp Assistance",
+      desc: "Direct communication with the travel team for fast replies and transparent options."
     },
     {
-      title: 'Local & Accessible Office',
-      description: 'Conveniently located at Shyam Vihar Phase-1, 25 Feet Road near JMD Mega Mart in Najafgarh.',
-      icon: MapPin,
-      iconColor: 'text-brand-orange-600',
-      bg: 'bg-brand-orange-50',
+      icon: <MapPin className="w-5 h-5 text-blue-600" />,
+      title: "Local Travel Office",
+      desc: "Conveniently located in Shyam Vihar Phase-1, Najafgarh, New Delhi."
     },
     {
-      title: 'Personalized Attention',
-      description: 'Speak directly with Naveen or Ajay who understand your routes, timings, and family travel requirements.',
-      icon: UserCheck,
-      iconColor: 'text-indigo-600',
-      bg: 'bg-indigo-50',
+      icon: <UserCheck className="w-5 h-5 text-amber-500" />,
+      title: "Personal Assistance",
+      desc: "Discuss your specific travel dates, routes, and budget directly with our team."
     },
     {
-      title: 'Simple, Honest Process',
-      description: 'Direct communication, clear pricing details, and zero hidden charges or fake promotional traps.',
-      icon: SlidersHorizontal,
-      iconColor: 'text-amber-600',
-      bg: 'bg-amber-50',
-    },
-    {
-      title: 'Pilgrimage & Outstation Focus',
-      description: 'Experienced guidance for journeys to Khatu Shyam Ji, Salasar Balaji, Rajasthan, and Northern India routes.',
-      icon: Compass,
-      iconColor: 'text-teal-600',
-      bg: 'bg-teal-50',
-    },
+      icon: <CheckCircle2 className="w-5 h-5 text-teal-600" />,
+      title: "Simple Booking Process",
+      desc: "No complicated online portals or confusing forms. Clear guidance from start to finish."
+    }
   ];
 
   return (
-    <section id="why-us" className="py-16 sm:py-24 bg-white relative">
+    <section id="why-us" className="py-14 sm:py-20 bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange-50 text-brand-orange-700 text-xs font-bold uppercase tracking-wider mb-3">
-            <span>Genuine Advantages</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-blue-950 tracking-tight">
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-orange-600 bg-brand-orange-50 px-3 py-1 rounded-full border border-brand-orange-200">
+            Real Trust & Service
+          </span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-blue-950 tracking-tight mt-2">
             Why Customers Choose Us
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
-            Real reasons why travelers in Najafgarh and Delhi NCR rely on our travel and vehicle assistance.
+            We focus on honest advice, quick response times, and dependable local travel support.
           </p>
         </div>
 
-        {/* Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {benefits.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={index}
-                className="bg-slate-50/70 hover:bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-slate-200/80 hover:border-brand-blue-200 shadow-sm hover:shadow-card transition-all duration-300 group"
-              >
-                <div
-                  className={`w-12 h-12 rounded-2xl ${item.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform`}
-                >
-                  <Icon className={`w-6 h-6 ${item.iconColor}`} />
-                </div>
-                <h3 className="text-base sm:text-lg font-bold text-brand-blue-950 mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {item.description}
-                </p>
+        {/* 5 Authentic Reasons Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {reasons.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs hover:border-brand-orange-300 transition-all flex flex-col justify-start"
+            >
+              <div className="w-11 h-11 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-4">
+                {item.icon}
               </div>
-            );
-          })}
+              <h3 className="text-base sm:text-lg font-bold text-brand-blue-950 mb-2">
+                {item.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+
+          {/* Location highlight box */}
+          <div className="bg-brand-blue-950 text-white rounded-2xl p-6 flex flex-col justify-between shadow-md sm:col-span-2 lg:col-span-1">
+            <div>
+              <div className="text-xs font-bold text-brand-orange-400 uppercase tracking-wider mb-2">
+                Direct Desk Location
+              </div>
+              <h3 className="text-base sm:text-lg font-bold text-white mb-2">
+                Shri Khatu Shyam Ji Tour & Travels
+              </h3>
+              <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                25 Feet Road, Near JMD Mega Mart, Shyam Vihar Phase-1, Najafgarh, New Delhi – 110043
+              </p>
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=25+Feet+Road+Near+JMD+Mega+Mart+Shyam+Vihar+Phase-1+Najafgarh+New+Delhi+110043"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-orange-400 hover:text-brand-orange-300"
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Open in Google Maps &rarr;</span>
+            </a>
+          </div>
         </div>
 
       </div>

@@ -1,53 +1,69 @@
 import React from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { QuickContactBar } from './components/QuickContactBar';
+import { QuickEnquirySelector } from './components/QuickEnquirySelector';
+import { QuickQuoteForm } from './components/QuickQuoteForm';
+import { PopularDestinations } from './components/PopularDestinations';
 import { ServicesSection } from './components/ServicesSection';
-import { InteractiveEnquiry } from './components/InteractiveEnquiry';
+import { CarRentalSection } from './components/CarRentalSection';
 import { HowItWorks } from './components/HowItWorks';
 import { WhyChooseUs } from './components/WhyChooseUs';
-import { AboutSection } from './components/AboutSection';
+import { TeamSection } from './components/TeamSection';
+import { NotSureCTA } from './components/NotSureCTA';
 import { ContactSection } from './components/ContactSection';
+import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { MobileBottomBar } from './components/MobileBottomBar';
 
 export function App() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col selection:bg-brand-orange-500 selection:text-white">
-      {/* Sticky Header */}
+      {/* 1. Header */}
       <Header />
 
-      {/* Main Content Sections */}
+      {/* Main Content Area */}
       <main className="flex-grow">
-        {/* 1. Hero Section */}
+        {/* 2. Hero Section */}
         <Hero />
 
-        {/* 2. Quick Contact Bar Strip */}
-        <QuickContactBar />
+        {/* 3. Quick Enquiry System (What Do You Need Today?) */}
+        <QuickEnquirySelector />
 
-        {/* 3. 8 Services Section */}
+        {/* 4. Quick Quote Form */}
+        <QuickQuoteForm />
+
+        {/* 5. Popular Destinations & Darshan Routes */}
+        <PopularDestinations />
+
+        {/* 6. 8 Services Under One Roof */}
         <ServicesSection />
 
-        {/* 4. Dynamic Interactive WhatsApp Enquiry Builder */}
-        <InteractiveEnquiry />
+        {/* 7. Dedicated Car Rental Fleet */}
+        <CarRentalSection />
 
-        {/* 5. 3-Step How It Works */}
+        {/* 8. How It Works (3 Steps) */}
         <HowItWorks />
 
-        {/* 6. Why Choose Us */}
+        {/* 9. Why Customers Choose Us */}
         <WhyChooseUs />
 
-        {/* 7. About The Business */}
-        <AboutSection />
+        {/* 10. Talk Directly With Our Team */}
+        <TeamSection />
 
-        {/* 8. Contact & Map Location Section */}
+        {/* 11. Not Sure What You Need? CTA Banner */}
+        <NotSureCTA />
+
+        {/* 12. Office Location & Contact */}
         <ContactSection />
+
+        {/* 13. Final Bottom CTA */}
+        <FinalCTA />
       </main>
 
-      {/* Footer */}
+      {/* 14. Footer */}
       <Footer />
 
-      {/* Mobile Fixed Sticky Bottom Bar (Call | WhatsApp) */}
+      {/* 15. Mobile Sticky Bottom Action Bar */}
       <MobileBottomBar />
     </div>
   );
