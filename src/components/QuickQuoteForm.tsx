@@ -167,33 +167,24 @@ export const QuickQuoteForm: React.FC = () => {
 
             </div>
 
-            {/* Choose Representative */}
+            {/* Representative Desk */}
             <div className="pt-2">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                Send Enquiry To:
+                Direct WhatsApp Desk:
               </label>
-              <div className="grid grid-cols-2 gap-3">
-                {BUSINESS_INFO.contacts.map((rep) => {
-                  const isSelected = selectedRep === rep.whatsappNumber;
-                  return (
-                    <button
-                      type="button"
-                      key={rep.whatsappNumber}
-                      onClick={() => setSelectedRep(rep.whatsappNumber)}
-                      className={`flex items-center justify-between p-3 rounded-xl border text-left transition-all ${
-                        isSelected
-                          ? 'bg-emerald-50 border-emerald-500 text-emerald-950 font-bold'
-                          : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-100'
-                      }`}
-                    >
-                      <div>
-                        <div className="text-xs font-bold">{rep.name}</div>
-                        <div className="text-[11px] text-slate-500">{rep.displayPhone}</div>
-                      </div>
-                      <span className={`w-3 h-3 rounded-full ${isSelected ? 'bg-emerald-600 ring-2 ring-emerald-300' : 'bg-slate-300'}`}></span>
-                    </button>
-                  );
-                })}
+              <div className="flex items-center justify-between p-3.5 rounded-xl border bg-emerald-50 border-emerald-300 text-emerald-950">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold text-xs">
+                    N
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold">{BUSINESS_INFO.contacts[0].name} (Travel Operations)</div>
+                    <div className="text-[11px] text-emerald-800 font-semibold">{BUSINESS_INFO.contacts[0].displayPhone}</div>
+                  </div>
+                </div>
+                <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-200/80 text-emerald-900">
+                  Online & Active
+                </span>
               </div>
             </div>
 

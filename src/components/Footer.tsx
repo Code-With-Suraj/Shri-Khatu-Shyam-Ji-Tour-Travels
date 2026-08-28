@@ -77,7 +77,6 @@ export const Footer: React.FC = () => {
             </div>
             <div className="pt-2 space-y-1 text-slate-300">
               <div><strong>Naveen:</strong> 87662 88547</div>
-              <div><strong>Ajay:</strong> 90341 51613</div>
             </div>
           </div>
 

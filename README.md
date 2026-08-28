@@ -11,10 +11,9 @@ Modern, high-performance, conversion-focused single-page website for **Shri Khat
 - **Office Location:** 25 Feet Road, Near JMD Mega Mart, Shyam Vihar Phase-1, Najafgarh, New Delhi – 110043
 - **Primary Objective:** Informative, trust-building portal driving direct WhatsApp enquiries for local and pilgrimage travel assistance.
 
-### 📞 Key Contacts
+### 📞 Key Contact
 
-- **Naveen (Tickets & Tour Planning):** [+91 87662 88547](https://wa.me/918766288547)
-- **Ajay (Car Rentals & Support):** [+91 90341 51613](https://wa.me/919034151613)
+- **Naveen (Travel Desk & Operations):** [+91 87662 88547](https://wa.me/918766288547)
 
 ---
 
@@ -36,7 +35,7 @@ Modern, high-performance, conversion-focused single-page website for **Shri Khat
 - **Mobile-First Responsive Layout:** Designed with Tailwind CSS and Lucide icons.
 - **Interactive Trip Enquiry Builder:** Dynamically formats customized WhatsApp enquiry messages with live preview.
 - **Service Category Filtering:** Quick toggle between *Tickets*, *Cars & Rentals*, *Hotel Booking*, and *Money Exchange*.
-- **Direct WhatsApp Deep Links:** Pre-filled enquiry messages formatted for Naveen and Ajay.
+- **Direct WhatsApp Deep Links:** Pre-filled enquiry messages formatted for quick assistance.
 - **SEO & Schema.org JSON-LD:** Structured schema for `TravelAgency`, geographic coordinates, opening hours, and address tags.
 - **Mobile Bottom Action Bar:** Thumb-friendly 1-tap call and WhatsApp launcher.
 

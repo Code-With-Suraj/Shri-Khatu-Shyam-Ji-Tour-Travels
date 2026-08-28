@@ -206,24 +206,14 @@ export const InteractiveEnquiry: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
               <span className="text-xs sm:text-sm font-bold text-brand-blue-950 uppercase tracking-wider flex items-center gap-1.5">
                 <User className="w-4 h-4 text-brand-orange-600" />
-                <span>3. Select Representative to Chat With:</span>
+                <span>3. Direct Travel Desk:</span>
               </span>
 
               <div className="flex items-center gap-2">
-                {BUSINESS_INFO.contacts.map((c) => (
-                  <button
-                    key={c.phone}
-                    type="button"
-                    onClick={() => setSelectedContact(c.whatsappNumber)}
-                    className={`text-xs font-bold px-3 py-1.5 rounded-lg border transition-all ${
-                      selectedContact === c.whatsappNumber
-                        ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
-                        : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-                    }`}
-                  >
-                    {c.name} ({c.displayPhone})
-                  </button>
-                ))}
+                <span className="text-xs font-bold px-3 py-1.5 rounded-lg border bg-emerald-600 text-white border-emerald-600 shadow-sm flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                  <span>{BUSINESS_INFO.contacts[0].name} ({BUSINESS_INFO.contacts[0].displayPhone})</span>
+                </span>
               </div>
             </div>
 

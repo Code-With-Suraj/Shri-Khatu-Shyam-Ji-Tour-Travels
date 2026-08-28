@@ -24,7 +24,7 @@ export const CarRentalSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {VEHICLE_CATEGORIES.map((vehicle) => {
             const waUrl = buildWhatsAppLink(
-              BUSINESS_INFO.contacts[1].whatsappNumber, // Ajay handles vehicle operations
+              BUSINESS_INFO.contacts[0].whatsappNumber,
               vehicle.defaultMessage
             );
 
@@ -102,7 +102,7 @@ export const CarRentalSection: React.FC = () => {
           })}
         </div>
 
-        {/* Direct Call Ajay Bar */}
+        {/* Direct Call Car Desk Bar */}
         <div className="mt-8 bg-white p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-brand-orange-100 text-brand-orange-600 flex items-center justify-center flex-shrink-0">
@@ -113,17 +113,17 @@ export const CarRentalSection: React.FC = () => {
                 Direct Outstation & Car Operations Desk
               </div>
               <div className="text-xs text-slate-500">
-                Connect with Ajay for customized rental duration, pilgrimage drops, and multi-day packages.
+                Connect with our team for customized rental duration, pilgrimage drops, and multi-day packages.
               </div>
             </div>
           </div>
 
           <a
-            href={`tel:+91${BUSINESS_INFO.contacts[1].phone}`}
+            href={`tel:+91${BUSINESS_INFO.contacts[0].phone}`}
             className="flex items-center gap-1.5 bg-brand-blue-900 hover:bg-brand-blue-800 text-white text-xs font-bold py-2.5 px-4 rounded-xl flex-shrink-0 transition-colors"
           >
             <Phone className="w-3.5 h-3.5 text-brand-orange-400" />
-            <span>Call Ajay: 90341 51613</span>
+            <span>Call Desk: {BUSINESS_INFO.contacts[0].displayPhone}</span>
           </a>
         </div>
 

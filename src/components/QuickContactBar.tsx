@@ -3,7 +3,7 @@ import { BUSINESS_INFO, buildWhatsAppLink, buildCallLink } from '../data/busines
 import { MessageCircle, Phone, Sparkles } from 'lucide-react';
 
 export const QuickContactBar: React.FC = () => {
-  const [naveen, ajay] = BUSINESS_INFO.contacts;
+  const contact = BUSINESS_INFO.contacts[0];
 
   return (
     <section className="relative -mt-6 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,42 +29,28 @@ export const QuickContactBar: React.FC = () => {
           </div>
 
           {/* Action Contact Buttons Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full lg:w-auto flex-shrink-0">
-            {/* WhatsApp Naveen */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full lg:w-auto flex-shrink-0">
+            {/* WhatsApp */}
             <a
               href={buildWhatsAppLink(
-                naveen.whatsappNumber,
-                "Hello Naveen Bhai, I would like to get a quote for travel tickets / booking."
+                contact.whatsappNumber,
+                "Hello Naveen Bhai, I would like to get a quote for travel tickets / car rental / tour services."
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs sm:text-sm py-2.5 px-3.5 rounded-xl transition-all shadow-sm group"
+              className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm py-2.5 px-5 rounded-xl transition-all shadow-sm group"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600 group-hover:scale-110 transition-transform" />
-              <span>WhatsApp Naveen</span>
-            </a>
-
-            {/* WhatsApp Ajay */}
-            <a
-              href={buildWhatsAppLink(
-                ajay.whatsappNumber,
-                "Hello Ajay Bhai, I would like to get a quote for car rental / travel services."
-              )}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs sm:text-sm py-2.5 px-3.5 rounded-xl transition-all shadow-sm group"
-            >
-              <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600 group-hover:scale-110 transition-transform" />
-              <span>WhatsApp Ajay</span>
+              <MessageCircle className="w-4 h-4 fill-white text-emerald-600 group-hover:scale-110 transition-transform" />
+              <span>WhatsApp Us ({contact.displayPhone})</span>
             </a>
 
             {/* Call Direct */}
             <a
-              href={buildCallLink(naveen.phone)}
-              className="flex items-center justify-center gap-2 bg-brand-blue-900 hover:bg-brand-blue-800 text-white font-bold text-xs sm:text-sm py-2.5 px-3.5 rounded-xl transition-colors shadow-sm"
+              href={buildCallLink(contact.phone)}
+              className="flex items-center justify-center gap-2 bg-brand-blue-900 hover:bg-brand-blue-800 text-white font-bold text-xs sm:text-sm py-2.5 px-5 rounded-xl transition-colors shadow-sm"
             >
               <Phone className="w-4 h-4 text-brand-orange-400" />
-              <span>Call Now</span>
+              <span>Call Helpline ({contact.displayPhone})</span>
             </a>
           </div>
 

@@ -63,18 +63,9 @@ export const BUSINESS_INFO = {
       phone: "8766288547",
       displayPhone: "87662 88547",
       whatsappNumber: "918766288547",
-      role: "Travel Assistance & Ticketing Desk",
-      desk: "Air, Train & Bus Tickets, Hotel Bookings",
+      role: "Travel Assistance & Operations Desk",
+      desk: "Tickets, Hotels, Car Rentals & Travel Bookings",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80"
-    },
-    {
-      name: "Ajay",
-      phone: "9034151613",
-      displayPhone: "90341 51613",
-      whatsappNumber: "919034151613",
-      role: "Car Rental & Vehicle Operations Desk",
-      desk: "Car Rental, Car Booking & Sale/Purchase",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80"
     }
   ] as ContactPerson[],
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=25+Feet+Road+Near+JMD+Mega+Mart+Shyam+Vihar+Phase-1+Najafgarh+New+Delhi+110043",

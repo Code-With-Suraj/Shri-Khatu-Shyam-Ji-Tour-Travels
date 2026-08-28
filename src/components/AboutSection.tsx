@@ -61,11 +61,11 @@ export const AboutSection: React.FC = () => {
               </a>
 
               <a
-                href={buildCallLink(BUSINESS_INFO.contacts[1].phone)}
+                href={buildCallLink(BUSINESS_INFO.contacts[0].phone)}
                 className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold py-3 px-5 rounded-xl transition-colors border border-slate-200"
               >
                 <Phone className="w-4 h-4 text-brand-blue-600" />
-                <span>Call Ajay</span>
+                <span>Call Helpline</span>
               </a>
             </div>
 
@@ -105,17 +105,14 @@ export const AboutSection: React.FC = () => {
 
                 <div>
                   <div className="text-[11px] font-bold text-brand-orange-400 uppercase tracking-wider mb-2">
-                    Key Contacts:
+                    Primary Desk Contact:
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="bg-brand-blue-900/80 p-2.5 rounded-xl border border-white/10">
-                      <div className="text-xs font-bold text-white">Naveen</div>
-                      <div className="text-[11px] text-brand-orange-300 font-mono">8766288547</div>
+                  <div className="bg-brand-blue-900/80 p-3 rounded-xl border border-white/10 flex items-center justify-between">
+                    <div>
+                      <div className="text-xs font-bold text-white">Naveen (Operations & Desk)</div>
+                      <div className="text-xs text-brand-orange-300 font-mono mt-0.5">{BUSINESS_INFO.contacts[0].displayPhone}</div>
                     </div>
-                    <div className="bg-brand-blue-900/80 p-2.5 rounded-xl border border-white/10">
-                      <div className="text-xs font-bold text-white">Ajay</div>
-                      <div className="text-[11px] text-brand-orange-300 font-mono">9034151613</div>
-                    </div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400"></div>
                   </div>
                 </div>
               </div>
