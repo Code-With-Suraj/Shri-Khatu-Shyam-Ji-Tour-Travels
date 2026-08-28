@@ -11,9 +11,10 @@ Modern, high-performance, conversion-focused single-page website for **Shri Khat
 - **Office Location:** 25 Feet Road, Near JMD Mega Mart, Shyam Vihar Phase-1, Najafgarh, New Delhi – 110043
 - **Primary Objective:** Informative, trust-building portal driving direct WhatsApp enquiries for local and pilgrimage travel assistance.
 
-### 📞 Key Contact
+### 📞 Key Contacts
 
 - **Naveen (Travel Desk & Operations):** [+91 87662 88547](https://wa.me/918766288547)
+- **Sonam Goyal (Support & Bookings):** [+91 85951 33770](https://wa.me/918595133770)
 
 ---
 

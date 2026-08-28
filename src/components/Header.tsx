@@ -128,13 +128,20 @@ export const Header: React.FC = () => {
 
             <div className="pt-3 border-t border-brand-blue-900/80 space-y-2">
               <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider px-1">Direct Contact Desk:</p>
-              <div>
+              <div className="grid grid-cols-2 gap-2">
                 <a
                   href={`tel:+91${BUSINESS_INFO.contacts[0].phone}`}
-                  className="flex items-center justify-center gap-2 bg-brand-blue-900 py-2.5 px-3 rounded-xl text-white text-xs font-semibold hover:bg-brand-blue-800 transition-colors"
+                  className="flex items-center justify-center gap-1.5 bg-brand-blue-900 py-2.5 px-2 rounded-xl text-white text-xs font-semibold hover:bg-brand-blue-800 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-brand-orange-400" />
-                  <span>Call Naveen ({BUSINESS_INFO.contacts[0].displayPhone})</span>
+                  <span>Call Naveen</span>
+                </a>
+                <a
+                  href={`tel:+91${BUSINESS_INFO.contacts[1].phone}`}
+                  className="flex items-center justify-center gap-1.5 bg-brand-blue-900 py-2.5 px-2 rounded-xl text-white text-xs font-semibold hover:bg-brand-blue-800 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-brand-orange-400" />
+                  <span>Call Sonam</span>
                 </a>
               </div>
             </div>

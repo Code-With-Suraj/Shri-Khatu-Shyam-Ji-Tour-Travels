@@ -65,12 +65,12 @@ export const ContactSection: React.FC = () => {
 
               {/* Direct Desk Contacts */}
               <div className="pt-3 border-t border-slate-100 space-y-3">
-                <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">Direct Desk Contact:</div>
+                <div className="text-xs font-bold text-slate-900 uppercase tracking-wider">Direct Contacts:</div>
                 
                 {/* Naveen */}
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200">
                   <div>
-                    <div className="font-bold text-xs text-brand-blue-950">Naveen (Tickets, Travel & Rental)</div>
+                    <div className="font-bold text-xs text-brand-blue-950">Naveen (Tickets & Travel Desk)</div>
                     <div className="text-xs font-semibold text-brand-orange-600">87662 88547</div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -87,6 +87,32 @@ export const ContactSection: React.FC = () => {
                       href={`tel:+91${BUSINESS_INFO.contacts[0].phone}`}
                       className="p-2 rounded-lg bg-brand-blue-900 text-white hover:bg-brand-blue-800 transition-colors"
                       title="Call Naveen"
+                    >
+                      <Phone className="w-4 h-4 text-brand-orange-400" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Sonam Goyal */}
+                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200">
+                  <div>
+                    <div className="font-bold text-xs text-brand-blue-950">Sonam Goyal (Support & Packages)</div>
+                    <div className="text-xs font-semibold text-brand-orange-600">85951 33770</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={buildWhatsAppLink(BUSINESS_INFO.contacts[1].whatsappNumber, "Hello Sonam, I need travel assistance / tour package enquiry.")}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-500 transition-colors"
+                      title="WhatsApp Sonam Goyal"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white" />
+                    </a>
+                    <a
+                      href={`tel:+91${BUSINESS_INFO.contacts[1].phone}`}
+                      className="p-2 rounded-lg bg-brand-blue-900 text-white hover:bg-brand-blue-800 transition-colors"
+                      title="Call Sonam Goyal"
                     >
                       <Phone className="w-4 h-4 text-brand-orange-400" />
                     </a>

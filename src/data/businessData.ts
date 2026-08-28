@@ -66,6 +66,15 @@ export const BUSINESS_INFO = {
       role: "Travel Assistance & Operations Desk",
       desk: "Tickets, Hotels, Car Rentals & Travel Bookings",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80"
+    },
+    {
+      name: "Sonam Goyal",
+      phone: "8595133770",
+      displayPhone: "85951 33770",
+      whatsappNumber: "918595133770",
+      role: "Customer Support & Travel Bookings",
+      desk: "Tour Packages, Flight & Train Tickets, Hotel Bookings",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80"
     }
   ] as ContactPerson[],
   googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=25+Feet+Road+Near+JMD+Mega+Mart+Shyam+Vihar+Phase-1+Najafgarh+New+Delhi+110043",
